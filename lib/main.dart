@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'app/router/app_router.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -12,9 +14,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(body: Center(child: Text("Nexora Running"))),
+      routerConfig: appRouter,
     );
   }
 }
