@@ -1,6 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../../../app/theme/app_colors.dart';
 
 class MainShell extends StatelessWidget {
   final StatefulNavigationShell navigationShell;
@@ -20,11 +21,9 @@ class MainShell extends StatelessWidget {
         index: navigationShell.currentIndex,
         height: 60,
         backgroundColor: Colors.transparent,
-        color: Theme.of(context).primaryColor,
-        buttonBackgroundColor: Theme.of(context).primaryColor,
-
+        color: AppColors.primary,
+        buttonBackgroundColor: AppColors.primary,
         onTap: _onTap,
-
         items: const [
           Icon(Icons.home, color: Colors.white),
           Icon(Icons.auto_awesome, color: Colors.white),
