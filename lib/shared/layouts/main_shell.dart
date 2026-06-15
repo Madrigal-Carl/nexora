@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -15,29 +16,19 @@ class MainShell extends StatelessWidget {
     return Scaffold(
       body: navigationShell,
 
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: navigationShell.currentIndex,
+      bottomNavigationBar: CurvedNavigationBar(
+        index: navigationShell.currentIndex,
+        height: 60,
+        backgroundColor: Colors.transparent,
+        color: Theme.of(context).primaryColor,
+        buttonBackgroundColor: Theme.of(context).primaryColor,
 
-        onDestinationSelected: _onTap,
+        onTap: _onTap,
 
-        destinations: const [
-          NavigationDestination(
-            icon: Icon(Icons.home_outlined),
-            selectedIcon: Icon(Icons.home),
-            label: 'Home',
-          ),
-
-          NavigationDestination(
-            icon: Icon(Icons.auto_awesome_outlined),
-            selectedIcon: Icon(Icons.auto_awesome),
-            label: 'Nexis',
-          ),
-
-          NavigationDestination(
-            icon: Icon(Icons.folder_outlined),
-            selectedIcon: Icon(Icons.folder),
-            label: 'Projects',
-          ),
+        items: const [
+          Icon(Icons.home, color: Colors.white),
+          Icon(Icons.auto_awesome, color: Colors.white),
+          Icon(Icons.folder, color: Colors.white),
         ],
       ),
     );
