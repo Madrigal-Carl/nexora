@@ -6,8 +6,10 @@ class AppColors {
   static const secondary = Color(0xFF06B6D4); // Cyan
 
   // Accent
+  static const success = Color(0xFF22C55E); // Green
   static const warning = Color(0xFFFACC15); // Yellow
   static const priority = Color(0xFFF97316); // Orange
+  static const danger = Color(0xFFEF4444); // Red
 
   // Neutrals
   static const background = Color(0xFFF8FAFC);

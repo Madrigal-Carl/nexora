@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
+import '../../../../app/theme/app_colors.dart';
 import '../../../../shared/widgets/header.dart';
+import '../../../../shared/widgets/kpi_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Padding(
         padding: EdgeInsets.all(20),
         child: Column(
@@ -17,6 +19,27 @@ class HomePage extends StatelessWidget {
             Header(
               title: 'Overview',
               subtitle: 'Stay on top of your projects and deadlines',
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: KpiCard(
+                    icon: Icons.verified,
+                    iconColor: AppColors.success,
+                    name: 'Done Today',
+                    number: '12',
+                  ),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: KpiCard(
+                    icon: Icons.dangerous,
+                    iconColor: AppColors.danger,
+                    name: 'Behind',
+                    number: '3',
+                  ),
+                ),
+              ],
             ),
           ],
         ),
