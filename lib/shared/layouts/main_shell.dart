@@ -21,8 +21,8 @@ class MainShell extends StatelessWidget {
         index: navigationShell.currentIndex,
         height: 60,
         backgroundColor: Colors.transparent,
-        color: AppColors.secondary,
-        buttonBackgroundColor: AppColors.secondary,
+        color: AppColors.primary,
+        buttonBackgroundColor: AppColors.primary,
         onTap: _onTap,
         items: const [
           Icon(Icons.home, color: Colors.white),

@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
         padding: EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          spacing: 20,
+          spacing: 14,
           children: [
             Header(
               title: 'Overview',
