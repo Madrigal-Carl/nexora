@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../app/theme/app_colors.dart';
-import '../../../../shared/widgets/header.dart';
-import '../../../../shared/widgets/kpi_card.dart';
+import 'package:nexora/app/theme/app_colors.dart';
+import 'package:nexora/shared/widgets/header.dart';
+import 'package:nexora/shared/widgets/kpi_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

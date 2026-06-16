@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../app/theme/app_text_styles.dart';
-import '../../app/theme/app_colors.dart';
+import 'package:nexora/app/theme/app_text_styles.dart';
+import 'package:nexora/app/theme/app_colors.dart';
 
 class KpiCard extends StatelessWidget {
   final IconData icon;

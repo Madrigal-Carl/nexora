@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../app/theme/app_text_styles.dart';
+import 'package:nexora/app/theme/app_text_styles.dart';
 
 class Header extends StatelessWidget {
   final String title;
