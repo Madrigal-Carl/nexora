@@ -23,21 +23,14 @@ class ProjectCard extends StatelessWidget {
     final progress = totalTasks == 0 ? 0.0 : completedTasks / totalTasks;
 
     return InkWell(
-      borderRadius: BorderRadius.circular(24),
+      borderRadius: BorderRadius.circular(18),
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.all(18),
+        padding: const EdgeInsets.all(14),
         decoration: BoxDecoration(
           color: AppColors.surface,
-          borderRadius: BorderRadius.circular(24),
+          borderRadius: BorderRadius.circular(18),
           border: Border.all(color: AppColors.border),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: .03),
-              blurRadius: 12,
-              offset: const Offset(0, 4),
-            ),
-          ],
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,113 +39,113 @@ class ProjectCard extends StatelessWidget {
             Row(
               children: [
                 Container(
-                  height: 48,
-                  width: 48,
+                  height: 40,
+                  width: 40,
                   decoration: BoxDecoration(
                     color: AppColors.primary.withValues(alpha: .12),
-                    borderRadius: BorderRadius.circular(14),
+                    borderRadius: BorderRadius.circular(12),
                   ),
                   child: const Icon(
                     Icons.folder_rounded,
                     color: AppColors.primary,
+                    size: 22,
                   ),
                 ),
 
                 const SizedBox(width: 12),
 
                 Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        projectName,
-                        style: AppTextStyles.headingSmall,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-
-                      const SizedBox(height: 2),
-
-                      Text(
-                        '$completedTasks of $totalTasks tasks completed',
-                        style: AppTextStyles.bodySmall,
-                      ),
-                    ],
+                  child: Text(
+                    projectName,
+                    style: AppTextStyles.headingSmall,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
 
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 10,
-                    vertical: 6,
-                  ),
-                  decoration: BoxDecoration(
-                    color: AppColors.background,
-                    borderRadius: BorderRadius.circular(999),
-                  ),
-                  child: Text(
-                    '${(progress * 100).round()}%',
-                    style: AppTextStyles.label,
-                  ),
+                Text(
+                  '${(progress * 100).round()}%',
+                  style: AppTextStyles.label,
                 ),
               ],
             ),
 
-            const SizedBox(height: 18),
+            const SizedBox(height: 10),
 
-            /// Progress Bar
+            Text(
+              '$completedTasks of $totalTasks tasks completed',
+              style: AppTextStyles.bodySmall,
+            ),
+
+            const SizedBox(height: 10),
+
             ClipRRect(
               borderRadius: BorderRadius.circular(999),
               child: LinearProgressIndicator(
                 value: progress,
-                minHeight: 8,
+                minHeight: 6,
                 backgroundColor: AppColors.border,
                 valueColor: const AlwaysStoppedAnimation(AppColors.primary),
               ),
             ),
 
-            const SizedBox(height: 18),
+            if (tasks.isNotEmpty) ...[
+              const SizedBox(height: 12),
 
-            /// Tasks Preview
-            ...tasks
-                .take(3)
-                .map(
-                  (task) => Padding(
-                    padding: const EdgeInsets.only(bottom: 10),
-                    child: Row(
-                      children: [
-                        Container(
-                          width: 10,
-                          height: 10,
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                  ...tasks
+                      .take(2)
+                      .map(
+                        (task) => Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 4,
+                          ),
                           decoration: BoxDecoration(
-                            color: task.priority.color,
-                            shape: BoxShape.circle,
+                            color: AppColors.background,
+                            borderRadius: BorderRadius.circular(999),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Container(
+                                width: 8,
+                                height: 8,
+                                decoration: BoxDecoration(
+                                  color: task.priority.color,
+                                  shape: BoxShape.circle,
+                                ),
+                              ),
+
+                              const SizedBox(width: 6),
+
+                              Text(task.title, style: AppTextStyles.bodySmall),
+                            ],
                           ),
                         ),
+                      ),
 
-                        const SizedBox(width: 10),
-
-                        Expanded(
-                          child: Text(
-                            task.title,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: AppTextStyles.body,
-                          ),
-                        ),
-                      ],
+                  if (tasks.length > 2)
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 6,
+                      ),
+                      decoration: BoxDecoration(
+                        color: AppColors.background,
+                        borderRadius: BorderRadius.circular(999),
+                      ),
+                      child: Text(
+                        '+${tasks.length - 2}',
+                        style: AppTextStyles.bodySmall,
+                      ),
                     ),
-                  ),
-                ),
-
-            if (tasks.length > 3)
-              Padding(
-                padding: const EdgeInsets.only(top: 4),
-                child: Text(
-                  '+${tasks.length - 3} more tasks',
-                  style: AppTextStyles.bodySmall,
-                ),
+                ],
               ),
+            ],
           ],
         ),
       ),

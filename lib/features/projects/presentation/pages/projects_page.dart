@@ -4,6 +4,7 @@ import 'package:nexora/app/theme/app_colors.dart';
 import 'package:nexora/app/theme/app_text_styles.dart';
 import 'package:nexora/shared/widgets/header.dart';
 import 'package:nexora/shared/widgets/kpi_card.dart';
+import 'package:nexora/shared/widgets/project_card.dart';
 
 class ProjectsPage extends StatelessWidget {
   const ProjectsPage({super.key});
@@ -85,6 +86,51 @@ class ProjectsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final projects = [
+      {
+        'name': 'Nexora Mobile App',
+        'totalTasks': 12,
+        'completedTasks': 7,
+        'tasks': [
+          ProjectTaskPreview(
+            title: 'Create login screen',
+            priority: Priority.high,
+          ),
+          ProjectTaskPreview(
+            title: 'Setup API integration',
+            priority: Priority.medium,
+          ),
+          ProjectTaskPreview(
+            title: 'Create dashboard UI',
+            priority: Priority.low,
+          ),
+          ProjectTaskPreview(
+            title: 'Add notifications',
+            priority: Priority.high,
+          ),
+        ],
+      },
+      {
+        'name': 'Website Redesign',
+        'totalTasks': 8,
+        'completedTasks': 3,
+        'tasks': [
+          ProjectTaskPreview(
+            title: 'Create wireframes',
+            priority: Priority.medium,
+          ),
+          ProjectTaskPreview(
+            title: 'Design landing page',
+            priority: Priority.high,
+          ),
+          ProjectTaskPreview(
+            title: 'Review typography',
+            priority: Priority.low,
+          ),
+        ],
+      },
+    ];
+
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.all(20),
@@ -124,6 +170,28 @@ class ProjectsPage extends StatelessWidget {
                 onPressed: () => _showCreateProjectModal(context),
                 icon: const Icon(Icons.add),
                 label: const Text('Create Project'),
+              ),
+            ),
+
+            Expanded(
+              child: ListView.builder(
+                itemCount: projects.length,
+                itemBuilder: (context, index) {
+                  final project = projects[index];
+
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 12),
+                    child: ProjectCard(
+                      projectName: project['name'] as String,
+                      totalTasks: project['totalTasks'] as int,
+                      completedTasks: project['completedTasks'] as int,
+                      tasks: project['tasks'] as List<ProjectTaskPreview>,
+                      onTap: () {
+                        debugPrint('Open ${(project['name'] as String)}');
+                      },
+                    ),
+                  );
+                },
               ),
             ),
           ],
