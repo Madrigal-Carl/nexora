@@ -67,7 +67,7 @@ class TaskDetailPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 spacing: 6,
                 children: [
-                  Text('Overview', style: AppTextStyles.headingMedium),
+                  Text('Overview', style: AppTextStyles.headingSmall),
                   Text(
                     task.description,
                     style: AppTextStyles.body.copyWith(height: 1.7),
@@ -80,7 +80,7 @@ class TaskDetailPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 spacing: 6,
                 children: [
-                  Text('Task Details', style: AppTextStyles.headingMedium),
+                  Text('Task Details', style: AppTextStyles.headingSmall),
                   Container(
                     decoration: BoxDecoration(
                       color: AppColors.surface,
@@ -182,10 +182,9 @@ class _DetailRow extends StatelessWidget {
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              spacing: 4,
               children: [
                 Text(title, style: AppTextStyles.caption),
-
-                const SizedBox(height: 4),
 
                 Text(
                   value,
