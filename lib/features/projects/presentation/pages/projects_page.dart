@@ -5,6 +5,7 @@ import 'package:nexora/app/theme/app_text_styles.dart';
 import 'package:nexora/shared/widgets/header.dart';
 import 'package:nexora/shared/widgets/kpi_card.dart';
 import 'package:nexora/shared/widgets/project_card.dart';
+import 'project_details_page.dart';
 
 class ProjectsPage extends StatelessWidget {
   const ProjectsPage({super.key});
@@ -187,7 +188,14 @@ class ProjectsPage extends StatelessWidget {
                       completedTasks: project['completedTasks'] as int,
                       tasks: project['tasks'] as List<ProjectTaskPreview>,
                       onTap: () {
-                        debugPrint('Open ${(project['name'] as String)}');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => ProjectDetailPage(
+                              projectName: project['name'] as String,
+                            ),
+                          ),
+                        );
                       },
                     ),
                   );
