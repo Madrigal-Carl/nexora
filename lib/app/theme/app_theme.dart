@@ -33,7 +33,7 @@ class AppTheme {
       filled: true,
       fillColor: AppColors.surface,
 
-      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
 
       hintStyle: GoogleFonts.inter(
         fontSize: 12,
@@ -41,27 +41,27 @@ class AppTheme {
       ),
 
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(12),
         borderSide: const BorderSide(color: AppColors.border),
       ),
 
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(12),
         borderSide: const BorderSide(color: AppColors.border),
       ),
 
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(12),
         borderSide: const BorderSide(color: AppColors.primary, width: 1.5),
       ),
 
       errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(12),
         borderSide: const BorderSide(color: AppColors.danger),
       ),
 
       focusedErrorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(12),
         borderSide: const BorderSide(color: AppColors.danger, width: 1.5),
       ),
     ),

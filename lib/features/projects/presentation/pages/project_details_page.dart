@@ -5,6 +5,7 @@ import 'package:nexora/shared/widgets/header.dart';
 import 'package:nexora/shared/widgets/kpi_card.dart';
 import '../widgets/task_card.dart';
 import 'task_detail_page.dart';
+import 'create_task_page.dart';
 
 class ProjectDetailPage extends StatelessWidget {
   const ProjectDetailPage({super.key, required this.projectName});
@@ -145,7 +146,12 @@ class ProjectDetailPage extends StatelessWidget {
               width: double.infinity,
               child: FilledButton.icon(
                 onPressed: () {
-                  // show create task modal
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => CreateTaskPage(projectName: projectName),
+                    ),
+                  );
                 },
                 icon: const Icon(Icons.add),
                 label: const Text('New Task'),
